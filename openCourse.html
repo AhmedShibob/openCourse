@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.2.4/plyr.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
+
+    <title>Course Name</title>
+</head>
+<style>
+    .wrapper {
+        display: flex;
+        width: 100%;
+        align-items: stretch;
+    }
+
+    #sidebar {
+        min-width: 400px;
+        max-width: 400px;
+        min-height: 100vh;
+        padding: 0 10px;
+    }
+
+    #sidebar.active {
+        margin-left: -400px;
+    }
+
+    a[data-toggle="collapse"] {
+        position: relative;
+    }
+
+    .dropdown-toggle::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+
+    @media (max-width: 768px) {
+        #sidebar {
+            margin-left: -400px;
+        }
+        #sidebar.active {
+            margin-left: 0;
+        }
+    }
+
+    @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: #fafafa;
+    }
+
+    p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1em;
+        font-weight: 300;
+        line-height: 1.7em;
+        color: #999;
+    }
+
+    a,
+    a:hover,
+    a:focus {
+        color: inherit;
+        text-decoration: none;
+        transition: all 0.3s;
+
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #sidebar {
+        /* don't forget to add all the previously mentioned styles here too */
+        background: #f2f3f5;
+        color: #29303b;
+        transition: all 0.3s;
+    }
+
+    #sidebar .sidebar-header {
+        padding: 20px 0;
+    }
+
+    #sidebar ul.components {
+        padding: 20px 0;
+        border-bottom: 1px solid #47748b;
+    }
+
+    #sidebar ul p {
+        color: #fff;
+        padding: 10px;
+    }
+
+    #sidebar ul li a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+    }
+
+    #sidebar ul li a:hover {
+        color: #7386D5;
+        background: #fff;
+    }
+
+    #sidebar ul li.active>a,
+    a[aria-expanded="true"] {
+        color: #fff;
+        background: #6d7fcc;
+    }
+
+    ul ul a {
+        font-size: 0.9em !important;
+        padding-left: 30px !important;
+        background: #6d7fcc;
+    }
+
+    .has-search .form-control {
+        padding-left: 2.375rem;
+    }
+
+    .has-search {
+        margin-top: 20px;
+    }
+
+    .has-search .form-control-feedback {
+        position: absolute;
+        z-index: 2;
+        display: block;
+        width: 1.375rem;
+        height: 1.375rem;
+        padding: 2px;
+        line-height: 1.375rem;
+        text-align: center;
+        margin: 6px;
+        pointer-events: none;
+        color: #aaa;
+    }
+
+    .section-content {
+        display: none;
+        width: 100%;
+    }
+
+    .course-section-body {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        color: #686f7a;
+        margin-bottom: 21px;
+        background-color: #fff;
+        border: 0px solid transparent;
+        border-radius: 2px;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    }
+
+    .section-heading {
+        padding: 15px 15px 0;
+        cursor: pointer;
+        width: 100%;
+
+    }
+
+    .section-heading h3 {
+        width: 100%;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+
+    .panel-body ul li {
+        position: relative;
+        border-top: 1px solid #f2f3f5;
+        display: flex;
+        justify-content: space-between;
+        color: #686f7a;
+        padding: 15px 20px;
+        cursor: pointer;
+    }
+
+    .panel-body ul li:hover {
+        background: #f2f3f5;
+
+    }
+
+    .panel-body ul .item--is-current {
+        background: #007791;
+        color: #fff;
+    }
+
+    .panel-body ul .item--is-current:hover {
+        background: #005e72;
+    }
+
+
+
+    .panel-body ul li .item--title {
+        flex: 1;
+        min-width: 1px;
+        order: 1;
+        margin-right: 5px;
+    }
+
+    .panel-body ul li .item--duration {
+        order: 2;
+        opacity: .7;
+    }
+
+    .plyr {
+        border-radius: 4px;
+        margin-bottom: 15px;
+    }
+
+    .text-secondary {
+        float: right;
+    }
+
+    #content{
+        width: 100%;
+    }
+
+    .video-container {
+        margin: 0 auto;
+        padding-top: 6%;
+        max-width: 1000px;
+        display: block;
+        position: relative;
+    }
+</style>
+
+<body>
+
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav id="sidebar" class="active">
+            <div class="sidebar-header">
+                <h3>Course Content</h3>
+            </div>
+
+            <div class="form-group has-search">
+                <span class="fa fa-search form-control-feedback"></span>
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+
+            <div class="course-content">
+
+                <div class="course-section">
+                    <div class="course-section-body">
+                        <div class="section-heading">
+                            <span>Section: 1</span>
+                            <span class="text-secondary ">5 / 5</span>
+                            <h3>Introduction and Setup</h3>
+                        </div>
+
+                        <div class="section-content">
+                            <div class="panel-body">
+                                <ul>
+                                    <li class="item--is-current">
+                                        <span class="item--title">1.Introduction and the Goal of this Course</span>
+                                        <span class="item--duration">4:33</span>
+                                    </li>
+                                    <li>
+                                        <span class="item--title">2.Introduction and the Goal of this Course</span>
+                                        <span class="item--duration">4:33</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="course-section">
+                    <div class="course-section-body">
+                        <div class="section-heading">
+                            <span>Section: 1</span>
+                            <span class="text-secondary ">5 / 5</span>
+                            <h3>Introduction and Setup</h3>
+                        </div>
+
+                        <div class="section-content">
+                            <div class="panel-body">
+                                <ul>
+                                    <li class="item--is-current">
+                                        <span class="item--title">1.Introduction and the Goal of this Course</span>
+                                        <span class="item--duration">4:33</span>
+                                    </li>
+                                    <li>
+                                        <span class="item--title">2.Introduction and the Goal of this Course</span>
+                                        <span class="item--duration">4:33</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </nav>
+
+        <!-- Page Content -->
+        <div id="content">
+            <nav style="z-index: 100;" class="navbar navbar-expand-lg navbar-light ">
+                <div class="container-fluid">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info">
+                        <i class="fas fa-align-left"></i>
+
+                    </button>
+                </div>
+            </nav>
+
+            <section>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="video-container">
+
+                                    <video controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
+                                        <!-- Video files -->
+                                        <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4" size="576">
+                                        <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4" size="720">
+                                        <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4" size="1080">
+                                        <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1440p.mp4" type="video/mp4" size="1440">
+    
+                                        <!-- Caption files -->
+                                        <track kind="captions" label="English" srclang="en" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.en.vtt"
+                                            default>
+                                        <track kind="captions" label="Français" srclang="fr" src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.fr.vtt">
+    
+                                        <!-- Fallback for browsers that don't support the <video> element -->
+                                        <a href="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" download>Download</a>
+                                    </video>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdn.plyr.io/3.2.4/plyr.js"></script>
+    <script>
+        const player = new Plyr('#player');
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('.section-heading').click(function () {
+                $(this).parents('.course-section-body').find('.section-content').slideToggle(400);
+            });
+
+            $('.panel-body ul li').click(function () {
+                $('.item--is-current').removeClass('item--is-current');
+                $(this).addClass('item--is-current');
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+            });
+
+        });
+    </script>
+</body>
+
+</html>
